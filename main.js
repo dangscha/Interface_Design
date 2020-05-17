@@ -11,6 +11,7 @@ function main() {
         planet.addEventListener("click", selectPlanet);
     }
 }
+//test
 function selectPlanet(_event) {
     if (secondSelected != true) {
         console.log(_event, _event.target);

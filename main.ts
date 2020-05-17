@@ -14,7 +14,7 @@ function main(): void { //Definieren von Variablen, um Zugriff zu erhalten
         planet.addEventListener("click", selectPlanet);
     }
 }
-
+//test
 function selectPlanet(_event: MouseEvent): void { //Funktion zum Anklicken von Planeten
     if (secondSelected != true) {
 
