@@ -25,19 +25,49 @@ img:hover{
     height:450px;
 }
 
+#mercury{
+    width: 30px;
+    height:30px;
+}
+
+#venus{
+    width: 40px;
+    height:40px;
+}
+
 #earth{
     width: 50px;
     height: 50px;
 }
 
+#mars{
+    width: 30px;
+    height: 30px;
+}
+
 #jupiter{
-    width: 250px;
-    height:250px;
+    width: 200px;
+    height:200px;
+}
+
+#saturn{
+    width: 350px;
+    height: 200px;
+}
+
+#uranus{
+    width: 130px;
+    height:130px;
 }
 
 #neptun{
     width: 150px;
     height:150px;
+}
+
+#pluto{
+    width: 30px;
+    height: 30px;
 }
 
 .grey{
