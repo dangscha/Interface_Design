@@ -14,7 +14,7 @@ function main(): void { //Definieren von Variablen, um Zugriff zu erhalten
         planet.addEventListener("click", selectPlanet);
     }
 }
-//test
+//lul
 function selectPlanet(_event: MouseEvent): void { //Funktion zum Anklicken von Planeten
     if (secondSelected != true) {
 
@@ -26,7 +26,7 @@ function selectPlanet(_event: MouseEvent): void { //Funktion zum Anklicken von P
         }
        
         if (secondSelected != true && firstSelected == true) {
-            secondPlanet = <HTMLImageElement>_event.target
+            secondPlanet = <HTMLImageElement>_event.target;
             secondSelected = true;
         }
 
@@ -35,7 +35,7 @@ function selectPlanet(_event: MouseEvent): void { //Funktion zum Anklicken von P
         }
 
         if (firstSelected != true) {
-            firstPlanet = <HTMLImageElement>_event.target
+            firstPlanet = <HTMLImageElement>_event.target;
             firstSelected = true;
         }
 
@@ -43,9 +43,8 @@ function selectPlanet(_event: MouseEvent): void { //Funktion zum Anklicken von P
             firstPlanet.classList.remove("grey"); //Angeklickter Planet bekommt wieder Farbe
 
         }
-
     }
 
 }
 
-window.addEventListener("load", main)
+window.addEventListener("load", main);
