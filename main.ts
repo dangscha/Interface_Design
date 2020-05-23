@@ -10,7 +10,7 @@ function main(): void { //Definieren von Variablen, um Zugriff zu erhalten
 
     for (let i: number = 0; i < planets.length; i++) {
 
-        let planet: HTMLImageElement = planets[i]
+        let planet: HTMLImageElement = planets[i];
         planet.addEventListener("click", selectPlanet);
     }
 }
@@ -24,10 +24,12 @@ function selectPlanet(_event: MouseEvent): void { //Funktion zum Anklicken von P
             let planet: HTMLImageElement = planets[i];
             planet.classList.add("grey");
         }
-       
+
         if (secondSelected != true && firstSelected == true) {
             secondPlanet = <HTMLImageElement>_event.target;
             secondSelected = true;
+
+            movePlanets();
         }
 
         if (secondSelected == true) {
@@ -43,6 +45,31 @@ function selectPlanet(_event: MouseEvent): void { //Funktion zum Anklicken von P
             firstPlanet.classList.remove("grey"); //Angeklickter Planet bekommt wieder Farbe
 
         }
+    }
+
+    function movePlanets(): void {
+        let choose = document.getElementById("choosePlanet");
+
+        //planetsDiv.style.cssText = "animation-name: move-planetsDiv;";
+        let remove: HTMLImageElement[] = [];
+        for (let i: number = 0; i < planets.length; i++) {
+
+            let planet: HTMLImageElement = planets[i];
+            if (planet != firstPlanet && planet != secondPlanet) {
+                remove.push(planet);
+            }
+        }
+
+        for (let i: number = 0; i < remove.length; i++) {
+
+            let planet: HTMLImageElement = remove[i];
+            if (planet != firstPlanet && planet != secondPlanet) {
+                planet.parentNode.removeChild(planet);
+                
+            }
+        }
+
+        choose.style.display = "flex";
     }
 
 }
