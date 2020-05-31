@@ -1,77 +1,95 @@
-let planets: any;
-let firstPlanet: HTMLImageElement;
-let secondPlanet: HTMLImageElement;
-let firstSelected: Boolean = false;
-let secondSelected: Boolean = false;
+namespace IntDes {
 
-function main(): void { //Definieren von Variablen, um Zugriff zu erhalten
+    let galaxy: HTMLDivElement;
+    let zoom: number = 1;
 
-    planets = document.getElementsByClassName("planet");
+    let top: number = 0;
+    let left: number = 0;
+    let x: number;
+    let y: number;
+    let moveX: number;
+    let moveY: number;
 
-    for (let i: number = 0; i < planets.length; i++) {
+    let move: boolean = false;
 
-        let planet: HTMLImageElement = planets[i];
-        planet.addEventListener("click", selectPlanet);
+    let speed: HTMLButtonElement;
+    let distance: HTMLButtonElement;
+    let size: HTMLButtonElement;
+
+    function main(): void { //Definieren von Variablen, um Zugriff zu erhalten
+
+        galaxy = <HTMLDivElement>document.getElementsByClassName("galaxy")[0];
+        document.addEventListener("wheel", zoomTo);
+
+        document.addEventListener("mousedown", (_event): void => {
+            move = true;
+            x = _event.clientX;
+            y = _event.clientY;
+        });
+        document.addEventListener("mousemove", moveGalaxy);
+
+        document.addEventListener("mouseup", (): void => {
+            move = false;
+            left += moveX;
+            top += moveY;
+        });
+
+        speed = <HTMLButtonElement>document.getElementById("Speed");
+        distance = <HTMLButtonElement>document.getElementById("Distance");
+        size = <HTMLButtonElement>document.getElementById("Size");
+
+        speed.addEventListener("click", setSpeed);
+        size.addEventListener("click", setSize);
+        distance.addEventListener("click", setDistance);
+
     }
+
+    function setSpeed(_event: MouseEvent): void {
+        console.log("speed");
+        let styleSize = document.getElementById("size-style");
+        let styleSpeed = document.getElementById("speed-style");
+        styleSpeed.rel = "stylesheet";
+        styleSize.rel = "alternate stylesheet";
+
+    }
+
+    function setSize(_event: MouseEvent): void {
+        console.log("size");
+        let styleSize = document.getElementById("size-style");
+        let styleSpeed = document.getElementById("speed-style");
+        styleSize.rel = "stylesheet";
+        styleSpeed.rel = "alternate stylesheet";
+    }
+
+    function setDistance(_event: MouseEvent): void {
+        console.log("distance");
+
+    }
+
+    function moveGalaxy(_event: MouseEvent): void {
+
+        if (move) {
+            moveX = -x + _event.clientX;
+            galaxy.style.left = left + moveX + "px";
+
+            moveY = -y + _event.clientY;
+            galaxy.style.top = top + moveY + "px";
+        }
+    }
+
+    function zoomTo(_event: WheelEvent): void {
+        if (_event.deltaY < 0 && zoom < 3) {
+
+            zoom += .1;
+            galaxy.style.transform = "scale(" + zoom + ")";
+
+        } else if (_event.deltaY > 0 && zoom > 0.5) {
+
+            zoom -= .1;
+            galaxy.style.transform = "scale(" + zoom + ")";
+
+        }
+    }
+
+    window.addEventListener("load", main);
 }
-//lul
-function selectPlanet(_event: MouseEvent): void { //Funktion zum Anklicken von Planeten
-    if (secondSelected != true) {
-
-        console.log(_event, _event.target);
-        for (let i: number = 0; i < planets.length; i++) { //For-Schleife dient dazu, dass Planeten ihre Sättigung verlieren
-
-            let planet: HTMLImageElement = planets[i];
-            planet.classList.add("grey");
-        }
-
-        if (secondSelected != true && firstSelected == true) {
-            secondPlanet = <HTMLImageElement>_event.target;
-            secondSelected = true;
-
-            movePlanets();
-        }
-
-        if (secondSelected == true) {
-            secondPlanet.classList.remove("grey"); //Angeklickter Planet bekommt wieder Farbe
-        }
-
-        if (firstSelected != true) {
-            firstPlanet = <HTMLImageElement>_event.target;
-            firstSelected = true;
-        }
-
-        if (firstSelected == true) {
-            firstPlanet.classList.remove("grey"); //Angeklickter Planet bekommt wieder Farbe
-
-        }
-    }
-
-    function movePlanets(): void {
-        let choose = document.getElementById("choosePlanet");
-
-        //planetsDiv.style.cssText = "animation-name: move-planetsDiv;";
-        let remove: HTMLImageElement[] = [];
-        for (let i: number = 0; i < planets.length; i++) {
-
-            let planet: HTMLImageElement = planets[i];
-            if (planet != firstPlanet && planet != secondPlanet) {
-                remove.push(planet);
-            }
-        }
-
-        for (let i: number = 0; i < remove.length; i++) {
-
-            let planet: HTMLImageElement = remove[i];
-            if (planet != firstPlanet && planet != secondPlanet) {
-                planet.parentNode.removeChild(planet);
-                
-            }
-        }
-
-        choose.style.display = "flex";
-    }
-
-}
-
-window.addEventListener("load", main);

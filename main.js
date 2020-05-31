@@ -1,58 +1,74 @@
 "use strict";
-let planets;
-let firstPlanet;
-let secondPlanet;
-let firstSelected = false;
-let secondSelected = false;
-function main() {
-    planets = document.getElementsByClassName("planet");
-    for (let i = 0; i < planets.length; i++) {
-        let planet = planets[i];
-        planet.addEventListener("click", selectPlanet);
+var IntDes;
+(function (IntDes) {
+    let galaxy;
+    let zoom = 1;
+    let top = 0;
+    let left = 0;
+    let x;
+    let y;
+    let moveX;
+    let moveY;
+    let move = false;
+    let speed;
+    let distance;
+    let size;
+    function main() {
+        galaxy = document.getElementsByClassName("galaxy")[0];
+        document.addEventListener("wheel", zoomTo);
+        document.addEventListener("mousedown", (_event) => {
+            move = true;
+            x = _event.clientX;
+            y = _event.clientY;
+        });
+        document.addEventListener("mousemove", moveGalaxy);
+        document.addEventListener("mouseup", () => {
+            move = false;
+            left += moveX;
+            top += moveY;
+        });
+        speed = document.getElementById("Speed");
+        distance = document.getElementById("Distance");
+        size = document.getElementById("Size");
+        speed.addEventListener("click", setSpeed);
+        size.addEventListener("click", setSize);
+        distance.addEventListener("click", setDistance);
     }
-}
-//lul
-function selectPlanet(_event) {
-    if (secondSelected != true) {
-        console.log(_event, _event.target);
-        for (let i = 0; i < planets.length; i++) { //For-Schleife dient dazu, dass Planeten ihre Sättigung verlieren
-            let planet = planets[i];
-            planet.classList.add("grey");
-        }
-        if (secondSelected != true && firstSelected == true) {
-            secondPlanet = _event.target;
-            secondSelected = true;
-            movePlanets();
-        }
-        if (secondSelected == true) {
-            secondPlanet.classList.remove("grey"); //Angeklickter Planet bekommt wieder Farbe
-        }
-        if (firstSelected != true) {
-            firstPlanet = _event.target;
-            firstSelected = true;
-        }
-        if (firstSelected == true) {
-            firstPlanet.classList.remove("grey"); //Angeklickter Planet bekommt wieder Farbe
+    function setSpeed(_event) {
+        console.log("speed");
+        let styleSize = document.getElementById("size-style");
+        let styleSpeed = document.getElementById("speed-style");
+        styleSpeed.rel = "stylesheet";
+        styleSize.rel = "alternate stylesheet";
+    }
+    function setSize(_event) {
+        console.log("size");
+        let styleSize = document.getElementById("size-style");
+        let styleSpeed = document.getElementById("speed-style");
+        styleSize.rel = "stylesheet";
+        styleSpeed.rel = "alternate stylesheet";
+    }
+    function setDistance(_event) {
+        console.log("distance");
+    }
+    function moveGalaxy(_event) {
+        if (move) {
+            moveX = -x + _event.clientX;
+            galaxy.style.left = left + moveX + "px";
+            moveY = -y + _event.clientY;
+            galaxy.style.top = top + moveY + "px";
         }
     }
-    function movePlanets() {
-        let choose = document.getElementById("choosePlanet");
-        //planetsDiv.style.cssText = "animation-name: move-planetsDiv;";
-        let remove = [];
-        for (let i = 0; i < planets.length; i++) {
-            let planet = planets[i];
-            if (planet != firstPlanet && planet != secondPlanet) {
-                remove.push(planet);
-            }
+    function zoomTo(_event) {
+        if (_event.deltaY < 0 && zoom < 3) {
+            zoom += .1;
+            galaxy.style.transform = "scale(" + zoom + ")";
         }
-        for (let i = 0; i < remove.length; i++) {
-            let planet = remove[i];
-            if (planet != firstPlanet && planet != secondPlanet) {
-                planet.parentNode.removeChild(planet);
-            }
+        else if (_event.deltaY > 0 && zoom > 0.5) {
+            zoom -= .1;
+            galaxy.style.transform = "scale(" + zoom + ")";
         }
-        choose.style.display = "flex";
     }
-}
-window.addEventListener("load", main);
+    window.addEventListener("load", main);
+})(IntDes || (IntDes = {}));
 //# sourceMappingURL=main.js.map

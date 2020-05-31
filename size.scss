@@ -1,0 +1,380 @@
+// Function for calculating planet revolution in Earth years.
+@function revolution($planet-year-in-earth-days) {
+    @return $year-in-seconds * $planet-year-in-earth-days / $earth-revolution-days + s;
+  }
+/*
+.planet:hover{
+    border: 4px solid lightblue;
+    cursor: pointer;
+ }*/
+  
+  /**
+   * Variables.
+   */
+  
+  // The number of seconds an Earth year should take. The animation would take a
+  // long time and be pretty boring if we used the actual duration here.
+  $year-in-seconds: 50;
+  
+  // Sun & Moon Size
+  $sun: 350px;
+  $moon: 0.5px;
+  
+  // Orbit Sizes
+  $mercury-orbit: 400px;
+  $venus-orbit: 450px;
+  $earth-orbit: 500px;
+  $moon-orbit: 6px;
+  $mars-orbit: 550px;
+  $jupiter-orbit: 650px;
+  $saturn-orbit: 820px;
+  $uranus-orbit: 950px;
+  $neptune-orbit: 1100px;
+  
+  // Planet Sizes
+  $mercury-planet: 1px;
+  $venus-planet: 3px;
+  $earth-planet: 3px;
+  $mars-planet: 1.5px;
+  $jupiter-planet: 35px;
+  $saturn-planet: 30px;
+  $uranus-planet: 9px;
+  $neptune-planet: 9px;
+  
+  // Background Colors
+  $moon-bg-color: #ccc;
+  $saturn-ring-bg-color: #a09382;
+  
+  // Planet Revolution in Days
+  $mercury-revolution-days: 87.5;
+  $venus-revolution-days: 224.7;
+  $earth-revolution-days: 365.2563;
+  $moon-revolution-days: 27.3216;
+  $mars-revolution-days: 687;
+  $jupiter-revolution-days: 4331;
+  $saturn-revolution-days: 10747;
+  $uranus-revolution-days: 30589;
+  $neptune-revolution-days: 59802;
+  
+  /**
+   * Styling.
+   */
+  
+  * {
+    box-sizing: border-box;
+  }
+  
+  html,
+  body {
+    width: 100%;
+    height: 100%;
+  
+    padding: 0;
+    margin: 0;
+    overflow: hidden;
+  
+    background-color: black;
+  }
+  
+  
+  .galaxy {
+    position: relative;
+  
+    width: 100%;
+    height: 100%;
+  }
+  
+  .solarSystem {
+    position: absolute;
+  
+    width: 100%;
+    height: 100%;
+  
+  }
+  
+  /**
+  * Orbit styles.
+   */
+  
+  .orbit {
+    position: absolute;
+  
+    top: 50%;
+    left: 50%;
+  
+    border: 1px solid rgba(#fff, .2);
+    border-radius: 50%;
+  
+    animation-name: animate--orbit;
+    animation-timing-function: linear;
+    animation-iteration-count: infinite;
+  
+    
+  }
+  
+  $orbits: (
+    "mercury": (
+      width: $mercury-orbit,
+      height: $mercury-orbit,
+      marginTop: -$mercury-orbit / 2,
+      marginLeft: -$mercury-orbit / 2,
+      animationDuration: revolution($mercury-revolution-days),
+    ),
+    "venus": (
+      width: $venus-orbit,
+      height: $venus-orbit,
+      marginTop: -$venus-orbit / 2,
+      marginLeft: -$venus-orbit / 2,
+      animationDuration: revolution($venus-revolution-days),
+    ),
+    "earth": (
+      width: $earth-orbit,
+      height: $earth-orbit,
+      marginTop: -$earth-orbit / 2,
+      marginLeft: -$earth-orbit / 2,
+      animationDuration: revolution($earth-revolution-days),
+    ),
+    "mars": (
+      width: $mars-orbit,
+      height: $mars-orbit,
+      marginTop: -$mars-orbit / 2,
+      marginLeft: -$mars-orbit / 2,
+      animationDuration: revolution($mars-revolution-days),
+    ),
+    "jupiter": (
+      width: $jupiter-orbit,
+      height: $jupiter-orbit,
+      marginTop: -$jupiter-orbit / 2,
+      marginLeft: -$jupiter-orbit / 2,
+      animationDuration: revolution($jupiter-revolution-days),
+    ),
+    "saturn": (
+      width: $saturn-orbit,
+      height: $saturn-orbit,
+      marginTop: -$saturn-orbit / 2,
+      marginLeft: -$saturn-orbit / 2,
+      animationDuration: revolution($saturn-revolution-days),
+    ),
+    "uranus": (
+      width: $uranus-orbit,
+      height: $uranus-orbit,
+      marginTop: -$uranus-orbit / 2,
+      marginLeft: -$uranus-orbit / 2,
+      animationDuration: revolution($uranus-revolution-days),
+    ),
+    "neptune": (
+      width: $neptune-orbit,
+      height: $neptune-orbit,
+      marginTop: -$neptune-orbit / 2,
+      marginLeft: -$neptune-orbit / 2,
+      animationDuration: revolution($neptune-revolution-days),
+    ),
+    "moon": (
+      width: $moon-orbit,
+      height: $moon-orbit,
+      marginTop: -$moon-orbit / 2,
+      marginLeft: -$moon-orbit / 2,
+      animationDuration: revolution($moon-revolution-days),
+    ),
+  );
+  
+  @each $name, $orbit in $orbits {
+    .orbit--#{$name} {
+      width: map-get($orbit, width);
+      height: map-get($orbit, height);
+  
+      margin-top: map-get($orbit, marginTop);
+      margin-left: map-get($orbit, marginLeft);
+  
+      animation-duration: map-get($orbit, animationDuration);
+    }
+  }
+  
+  .orbit--moon {
+    animation-name: animate--orbit;
+  }
+  
+  /**
+   * Planet styles.
+   */
+  
+  .sun,
+  .planet,
+  .moon {
+    position: absolute;
+  
+    top: 50%;
+    left: 50%;
+  
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+  
+    border-radius: 50%;
+  
+    animation-timing-function: linear;
+    animation-iteration-count: infinite;
+  
+  }
+  
+  .sun {
+    width: $sun;
+    height: $sun;
+  
+    margin-top: -$sun / 2;
+    margin-left: -$sun / 2;
+  
+    background-image: url("source/sun.png");
+  
+  }
+  
+  .moon {
+    left: -$moon / 2;
+  
+    width: $moon;
+    height: $moon;
+  
+    background: $moon-bg-color;
+  
+    animation-name: animate--planet;
+    animation-duration: revolution($moon-revolution-days);
+  }
+  
+  $planets: (
+    "mercury": (
+      left: -$mercury-planet / 2,
+      width: $mercury-planet,
+      height: $mercury-planet,
+      backgroundImage: url("source/mercury.png"),
+      animationName: (animate--planet),
+      animationDuration: revolution($mercury-revolution-days),
+    ),
+    "venus": (
+      left: -$venus-planet / 2,
+      width: $venus-planet,
+      height: $venus-planet,
+      backgroundImage: url("source/venus.png"),
+      animationName: (animate--planet),
+      animationDuration: revolution($venus-revolution-days),
+    ),
+    "earth": (
+      left: -$earth-planet / 2,
+      width: $earth-planet,
+      height: $earth-planet,
+      backgroundImage: url("source/earth.png"),
+      animationName: (animate--planet),
+      animationDuration: revolution($earth-revolution-days),
+    ),
+    "mars": (
+      left: -$mars-planet / 2,
+      width: $mars-planet,
+      height: $mars-planet,
+      backgroundImage: url("source/mars.png"),
+      animationName: (animate--planet),
+      animationDuration: revolution($mars-revolution-days),
+    ),
+    "jupiter": (
+      left: -$jupiter-planet / 2,
+      width: $jupiter-planet,
+      height: $jupiter-planet,
+      backgroundImage: url("source/jupiter.png"),
+      animationName: (animate--planet),
+      animationDuration: revolution($jupiter-revolution-days),
+    ),
+    "saturn": (
+      left: -$saturn-planet / 2,
+      width: $saturn-planet,
+      height: $saturn-planet,
+      backgroundImage: url("source/saturn.jpg"),
+      animationName: (animate--planet),
+      animationDuration: revolution($saturn-revolution-days),
+    ),
+    "uranus": (
+      left: -$uranus-planet / 2,
+      width: $uranus-planet,
+      height: $uranus-planet,
+      backgroundImage: url("source/uranus.jpg"),
+      animationName: (animate--planet),
+      animationDuration: revolution($uranus-revolution-days),
+    ),
+    "neptune": (
+      left: -$neptune-planet / 2,
+      width: $neptune-planet,
+      height: $neptune-planet,
+      backgroundImage: url("source/neptun.jpg"),
+      animationName: (animate--planet),
+      animationDuration: revolution($neptune-revolution-days),
+    ),
+  );
+  
+  @each $name, $planet in $planets {
+    .planet--#{$name} {
+      left: map-get($planet, left);
+  
+      width: map-get($planet, width);
+      height: map-get($planet, height);
+  
+      background-image: map-get($planet, backgroundImage);
+  
+      animation-name: map-get($planet, animationName);
+      animation-duration: map-get($planet, animationDuration);
+    }
+  }
+  
+  .planet--saturn {
+    &::before,
+    &::after {
+      position: absolute;
+  
+      content: "";
+  
+      border-radius: 50%;
+  
+    }
+  
+    &::before {
+      top: -15px;
+      left: -15px;
+  
+      width: 60px;
+      height: 60px;
+  
+      border: 2px solid rgba($saturn-ring-bg-color, .5);
+    }
+  
+    &::after {
+      top: -12.8px;
+      left: -11px;
+  
+      width: 45px;
+      height: 45px;
+  
+      border: 5px solid rgba($saturn-ring-bg-color, .7);
+    }
+  }
+  
+  /**
+   * Animations.
+  */
+  
+  @keyframes animate--orbit {
+    0% {
+      transform: rotateZ(0deg);
+    }
+  
+    100% {
+      transform: rotateZ(-360deg);
+    }
+  }
+  
+  @keyframes animate--suborbit {
+    0% {
+      transform: rotateX(90deg) rotateZ(0deg);
+    }
+  
+    100% {
+      transform: rotateX(90deg) rotateZ(-360deg);
+    }
+  }
+  
+
