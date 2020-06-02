@@ -7,6 +7,15 @@
  * Variables.
  */
 /**
+$mercury-planet: 1px;
+$venus-planet: 3px;
+$earth-planet: 3px;
+$mars-planet: 1.5px;
+$jupiter-planet: 35px;
+$saturn-planet: 30px;
+$uranus-planet: 9px;
+$neptune-planet: 9px; **/
+/**
  * Styling.
  */
 * {
@@ -50,74 +59,74 @@ body {
 }
 
 .orbit--mercury {
-  width: 400px;
-  height: 400px;
-  margin-top: -200px;
-  margin-left: -200px;
+  width: 88px;
+  height: 88px;
+  margin-top: -44px;
+  margin-left: -44px;
   animation-duration: 11.9778905935s;
 }
 
 .orbit--venus {
-  width: 450px;
-  height: 450px;
-  margin-top: -225px;
-  margin-left: -225px;
+  width: 100px;
+  height: 100px;
+  margin-top: -50px;
+  margin-left: -50px;
   animation-duration: 30.7592230442s;
 }
 
 .orbit--earth {
-  width: 500px;
-  height: 500px;
-  margin-top: -250px;
-  margin-left: -250px;
+  width: 115px;
+  height: 115px;
+  margin-top: -57.5px;
+  margin-left: -57.5px;
   animation-duration: 50s;
 }
 
 .orbit--mars {
-  width: 550px;
-  height: 550px;
-  margin-top: -275px;
-  margin-left: -275px;
+  width: 139px;
+  height: 139px;
+  margin-top: -69.5px;
+  margin-left: -69.5px;
   animation-duration: 94.0435524315s;
 }
 
 .orbit--jupiter {
-  width: 650px;
-  height: 650px;
-  margin-top: -325px;
-  margin-left: -325px;
+  width: 344px;
+  height: 344px;
+  margin-top: -172px;
+  margin-left: -172px;
   animation-duration: 592.8713618355s;
 }
 
 .orbit--saturn {
-  width: 820px;
-  height: 820px;
-  margin-top: -410px;
-  margin-left: -410px;
+  width: 500px;
+  height: 500px;
+  margin-top: -250px;
+  margin-left: -250px;
   animation-duration: 1471.1587452427s;
 }
 
 .orbit--uranus {
-  width: 950px;
-  height: 950px;
-  margin-top: -475px;
-  margin-left: -475px;
+  width: 934px;
+  height: 934px;
+  margin-top: -467px;
+  margin-left: -467px;
   animation-duration: 4187.3336613222s;
 }
 
 .orbit--neptune {
-  width: 1100px;
-  height: 1100px;
-  margin-top: -550px;
-  margin-left: -550px;
+  width: 1420px;
+  height: 1420px;
+  margin-top: -710px;
+  margin-left: -710px;
   animation-duration: 8186.3064374249s;
 }
 
 .orbit--moon {
-  width: 6px;
-  height: 6px;
-  margin-top: -3px;
-  margin-left: -3px;
+  width: 7px;
+  height: 7px;
+  margin-top: -3.5px;
+  margin-left: -3.5px;
   animation-duration: 3.740058693s;
 }
 
@@ -143,53 +152,53 @@ body {
 }
 
 .sun {
-  width: 350px;
-  height: 350px;
-  margin-top: -175px;
-  margin-left: -175px;
+  width: 70px;
+  height: 70px;
+  margin-top: -35px;
+  margin-left: -35px;
   background-image: url("source/sun.png");
 }
 
 .moon {
-  left: -0.25px;
-  width: 0.5px;
-  height: 0.5px;
+  left: -1px;
+  width: 2px;
+  height: 2px;
   background: #ccc;
   animation-name: animate--planet;
   animation-duration: 3.740058693s;
 }
 
 .planet--mercury {
-  left: -0.5px;
-  width: 1px;
-  height: 1px;
+  left: -1px;
+  width: 2px;
+  height: 2px;
   background-image: url("source/mercury.png");
   animation-name: animate--planet;
   animation-duration: 11.9778905935s;
 }
 
 .planet--venus {
-  left: -1.5px;
-  width: 3px;
-  height: 3px;
+  left: -2px;
+  width: 4px;
+  height: 4px;
   background-image: url("source/venus.png");
   animation-name: animate--planet;
   animation-duration: 30.7592230442s;
 }
 
 .planet--earth {
-  left: -1.5px;
-  width: 3px;
-  height: 3px;
+  left: -2px;
+  width: 4px;
+  height: 4px;
   background-image: url("source/earth.png");
   animation-name: animate--planet;
   animation-duration: 50s;
 }
 
 .planet--mars {
-  left: -0.75px;
-  width: 1.5px;
-  height: 1.5px;
+  left: -1.5px;
+  width: 3px;
+  height: 3px;
   background-image: url("source/mars.png");
   animation-name: animate--planet;
   animation-duration: 94.0435524315s;
@@ -214,18 +223,18 @@ body {
 }
 
 .planet--uranus {
-  left: -4.5px;
-  width: 9px;
-  height: 9px;
+  left: -6.5px;
+  width: 13px;
+  height: 13px;
   background-image: url("source/uranus.png");
   animation-name: animate--planet;
   animation-duration: 4187.3336613222s;
 }
 
 .planet--neptune {
-  left: -4.5px;
-  width: 9px;
-  height: 9px;
+  left: -6px;
+  width: 12px;
+  height: 12px;
   background-image: url("source/neptun.png");
   animation-name: animate--planet;
   animation-duration: 8186.3064374249s;
@@ -237,18 +246,18 @@ body {
   border-radius: 50%;
 }
 .planet--saturn::before {
-  top: -15px;
-  left: -15px;
-  width: 60px;
-  height: 60px;
-  border: 2px solid rgba(160, 147, 130, 0.5);
+  top: -5px;
+  left: -5px;
+  width: 40px;
+  height: 40px;
+  border: 1px solid rgba(160, 147, 130, 0.5);
 }
 .planet--saturn::after {
-  top: -10px;
-  left: -10px;
-  width: 45px;
-  height: 45px;
-  border: 3px solid rgba(160, 147, 130, 0.7);
+  top: -2px;
+  left: -2px;
+  width: 30px;
+  height: 30px;
+  border: 2px solid rgba(160, 147, 130, 0.7);
 }
 
 /**
@@ -271,4 +280,4 @@ body {
   }
 }
 
-/*# sourceMappingURL=size.css.map */
+/*# sourceMappingURL=distance.css.map */

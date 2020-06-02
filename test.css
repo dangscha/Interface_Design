@@ -6,10 +6,6 @@
 /**
  * Variables.
  */
-.galaxy.size {
-  background-color: brown;
-}
-
 /**
  * Styling.
  */
@@ -185,7 +181,7 @@ body {
   left: -13px;
   width: 26px;
   height: 26px;
-  background-image: url("source/earth.png");
+  background-image: url("source/earth2.png");
   animation-name: animate--planet;
   animation-duration: 15s;
 }
@@ -212,7 +208,7 @@ body {
   left: -30px;
   width: 60px;
   height: 60px;
-  background-image: url("source/saturn.jpg");
+  background-image: url("source/saturn.png");
   animation-name: animate--planet;
   animation-duration: 441.3476235728s;
 }
@@ -221,7 +217,7 @@ body {
   left: -13px;
   width: 26px;
   height: 26px;
-  background-image: url("source/uranus.jpg");
+  background-image: url("source/uranus.png");
   animation-name: animate--planet;
   animation-duration: 1256.2000983967s;
 }
@@ -230,7 +226,7 @@ body {
   left: -12.5px;
   width: 25px;
   height: 25px;
-  background-image: url("source/neptun.jpg");
+  background-image: url("source/neptun.png");
   animation-name: animate--planet;
   animation-duration: 2455.8919312275s;
 }

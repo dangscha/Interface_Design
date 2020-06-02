@@ -14,32 +14,42 @@
   
   // The number of seconds an Earth year should take. The animation would take a
   // long time and be pretty boring if we used the actual duration here.
-  $year-in-seconds: 15;
+  $year-in-seconds: 50;
   
   // Sun & Moon Size
   $sun: 70px;
-  $moon: 4px;
+  $moon: 2px;
   
   // Orbit Sizes
-  $mercury-orbit: 120px;
-  $venus-orbit: 175px;
-  $earth-orbit: 255px;
-  $moon-orbit: 50px;
-  $mars-orbit: 335px;
-  $jupiter-orbit: 595px;
-  $saturn-orbit: 770px;
-  $uranus-orbit: 910px;
-  $neptune-orbit: 1100px;
+  $mercury-orbit: 88px;
+  $venus-orbit: 100px;
+  $earth-orbit: 115px;
+  $moon-orbit: 7px;
+  $mars-orbit: 139px;
+  $jupiter-orbit: 344px;
+  $saturn-orbit: 500px;
+  $uranus-orbit: 934px;
+  $neptune-orbit: 1420px;
   
   // Planet Sizes
-  $mercury-planet: 10px;
-  $venus-planet: 24px;
-  $earth-planet: 26px;
-  $mars-planet: 14px;
-  $jupiter-planet: 71px;
-  $saturn-planet: 60px;
-  $uranus-planet: 26px;
-  $neptune-planet: 25px;
+  $mercury-planet: 2px;
+  $venus-planet: 4px;
+  $earth-planet: 4px;
+  $mars-planet: 3px;
+  $jupiter-planet: 35px;
+  $saturn-planet: 30px;
+  $uranus-planet: 13px;
+  $neptune-planet: 12px;
+
+  /**
+  $mercury-planet: 1px;
+  $venus-planet: 3px;
+  $earth-planet: 3px;
+  $mars-planet: 1.5px;
+  $jupiter-planet: 35px;
+  $saturn-planet: 30px;
+  $uranus-planet: 9px;
+  $neptune-planet: 9px; **/
   
   // Background Colors
   $moon-bg-color: #ccc;
@@ -261,7 +271,7 @@
       left: -$earth-planet / 2,
       width: $earth-planet,
       height: $earth-planet,
-      backgroundImage: url("source/earth2.png"),
+      backgroundImage: url("source/earth.png"),
       animationName: (animate--planet),
       animationDuration: revolution($earth-revolution-days),
     ),
@@ -333,23 +343,23 @@
     }
   
     &::before {
-      top: -20px;
-      left: -20px;
+      top: -5px;
+      left: -5px;
   
-      width: 90px;
-      height: 90px;
+      width: 40px;
+      height: 40px;
   
-      border: 5px solid rgba($saturn-ring-bg-color, .5);
+      border: 1px solid rgba($saturn-ring-bg-color, .5);
     }
   
     &::after {
-      top: -13px;
-      left: -13px;
+      top: -2px;
+      left: -2px;
   
-      width: 65px;
-      height: 65px;
+      width: 30px;
+      height: 30px;
   
-      border: 10px solid rgba($saturn-ring-bg-color, .7);
+      border: 2px solid rgba($saturn-ring-bg-color, .7);
     }
   }
   

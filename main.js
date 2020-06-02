@@ -38,18 +38,28 @@ var IntDes;
         console.log("speed");
         let styleSize = document.getElementById("size-style");
         let styleSpeed = document.getElementById("speed-style");
-        styleSpeed.rel = "stylesheet";
+        let styleDistance = document.getElementById("distance-style");
         styleSize.rel = "alternate stylesheet";
+        styleDistance.rel = "alternate stylesheet";
+        styleSpeed.rel = "stylesheet";
     }
     function setSize(_event) {
         console.log("size");
         let styleSize = document.getElementById("size-style");
         let styleSpeed = document.getElementById("speed-style");
+        let styleDistance = document.getElementById("distance-style");
         styleSize.rel = "stylesheet";
+        styleDistance.rel = "alternate stylesheet";
         styleSpeed.rel = "alternate stylesheet";
     }
     function setDistance(_event) {
         console.log("distance");
+        let styleSize = document.getElementById("size-style");
+        let styleSpeed = document.getElementById("speed-style");
+        let styleDistance = document.getElementById("distance-style");
+        styleSize.rel = "alternate stylesheet";
+        styleDistance.rel = "stylesheet";
+        styleSpeed.rel = "alternate stylesheet";
     }
     function moveGalaxy(_event) {
         if (move) {
