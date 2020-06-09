@@ -13,8 +13,11 @@ var IntDes;
     let speed;
     let distance;
     let size;
+    let texts;
+    let buttons;
     function main() {
         galaxy = document.getElementsByClassName("galaxy")[0];
+        texts = document.getElementsByClassName("info");
         document.addEventListener("wheel", zoomTo);
         document.addEventListener("mousedown", (_event) => {
             move = true;
@@ -33,6 +36,46 @@ var IntDes;
         speed.addEventListener("click", setSpeed);
         size.addEventListener("click", setSize);
         distance.addEventListener("click", setDistance);
+        buttons = document.getElementsByClassName("myButton");
+        for (let i = 0; i < buttons.length; i++) {
+            buttons[i].addEventListener("click", showInfo);
+        }
+    }
+    let target = "";
+    let lastTarget = "";
+    let targetPlanet;
+    let targetText;
+    let request;
+    async function showInfo(_event) {
+        lastTarget = target;
+        target = _event.target.getAttribute("planet-data");
+        if (target != "none") {
+            targetPlanet = document.getElementsByClassName("planet--" + target)[0];
+            targetText = document.getElementById("text--" + target);
+            request = window.requestAnimationFrame(update);
+            window.requestAnimationFrame(update);
+        }
+        else {
+            for (let i = 0; i < texts.length; i++) {
+                texts[i].style.display = "none";
+            }
+        }
+        for (let i = 0; i < buttons.length; i++) {
+            buttons[i].className = "myButton";
+        }
+        _event.target.className = "myButton active";
+    }
+    function update() {
+        if (target != "none") {
+            let position = targetPlanet.getBoundingClientRect();
+            targetText.style.left = position.x + "px";
+            targetText.style.top = position.y + "px";
+            for (let i = 0; i < texts.length; i++) {
+                texts[i].style.display = "none";
+            }
+            targetText.style.display = "block";
+            window.requestAnimationFrame(update);
+        }
     }
     function setSpeed(_event) {
         console.log("speed");

@@ -16,9 +16,13 @@ namespace IntDes {
     let distance: HTMLButtonElement;
     let size: HTMLButtonElement;
 
+    let texts: HTMLCollectionOf<HTMLDivElement>;
+    let buttons: HTMLCollectionOf<HTMLButtonElement>;
+
     function main(): void { //Definieren von Variablen, um Zugriff zu erhalten
 
         galaxy = <HTMLDivElement>document.getElementsByClassName("galaxy")[0];
+        texts = <HTMLCollectionOf<HTMLDivElement>>document.getElementsByClassName("info");
         document.addEventListener("wheel", zoomTo);
 
         document.addEventListener("mousedown", (_event): void => {
@@ -42,7 +46,62 @@ namespace IntDes {
         size.addEventListener("click", setSize);
         distance.addEventListener("click", setDistance);
 
+        buttons = <HTMLCollectionOf<HTMLButtonElement>>document.getElementsByClassName("myButton");
+
+        for (let i: number = 0; i < buttons.length; i++) {
+            buttons[i].addEventListener("click", showInfo);
+        }
+
     }
+
+    let target: string = "";
+    let lastTarget: string = "";
+    let targetPlanet: HTMLDivElement;
+    let targetText: HTMLDivElement;
+
+    let request: any;
+    async function showInfo(_event: MouseEvent): Promise<void> {
+        lastTarget = target;
+        target = (<HTMLButtonElement>_event.target).getAttribute("planet-data");
+        if (target != "none") {
+            targetPlanet = <HTMLDivElement>document.getElementsByClassName("planet--" + target)[0];
+            targetText = <HTMLDivElement>document.getElementById("text--" + target);
+            request = window.requestAnimationFrame(update);
+
+            window.requestAnimationFrame(update);
+
+            
+        } else {
+            for (let i: number = 0; i < texts.length; i++) {
+                texts[i].style.display = "none";
+            }
+        }
+        
+        for (let i: number = 0; i < buttons.length; i++) {
+            buttons[i].className = "myButton";
+        }
+
+        (<HTMLButtonElement>_event.target).className = "myButton active";
+
+    }
+
+    function update(): void {
+        if (target != "none") {
+            let position = targetPlanet.getBoundingClientRect();
+            targetText.style.left = position.x + "px";
+            targetText.style.top = position.y + "px";
+
+            for (let i: number = 0; i < texts.length; i++) {
+                texts[i].style.display = "none";
+            }
+            targetText.style.display = "block";
+
+
+            window.requestAnimationFrame(update);
+        }
+
+    }
+
 
     function setSpeed(_event: MouseEvent): void {
         console.log("speed");
