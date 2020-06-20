@@ -22,6 +22,7 @@ namespace IntDes {
     function main(): void { //Definieren von Variablen, um Zugriff zu erhalten
 
         galaxy = <HTMLDivElement>document.getElementsByClassName("galaxy")[0];
+
         texts = <HTMLCollectionOf<HTMLDivElement>>document.getElementsByClassName("info");
         document.addEventListener("wheel", zoomTo);
 
@@ -60,23 +61,44 @@ namespace IntDes {
     let targetText: HTMLDivElement;
 
     let request: any;
+
     async function showInfo(_event: MouseEvent): Promise<void> {
         lastTarget = target;
         target = (<HTMLButtonElement>_event.target).getAttribute("planet-data");
+        let deColor: HTMLCollectionOf<HTMLDivElement> = <HTMLCollectionOf<HTMLDivElement>>galaxy.children[0].children;
+
         if (target != "none") {
+            
             targetPlanet = <HTMLDivElement>document.getElementsByClassName("planet--" + target)[0];
+            if (target == "sun") { 
+                targetPlanet = <HTMLDivElement>document.getElementsByClassName(target)[0];
+            }
             targetText = <HTMLDivElement>document.getElementById("text--" + target);
             request = window.requestAnimationFrame(update);
 
+            for (let i: number = 0; i < deColor.length; i++) {
+                deColor[i].classList.add("grey");
+            }
+
+            (<HTMLDivElement>targetPlanet.parentNode).classList.remove("grey");
+            if (target == "sun") { 
+                (<HTMLDivElement>targetPlanet).classList.remove("grey");
+            }
             window.requestAnimationFrame(update);
 
-            
+
         } else {
             for (let i: number = 0; i < texts.length; i++) {
                 texts[i].style.display = "none";
             }
+
+            for (let i: number = 0; i < deColor.length; i++) {
+                deColor[i].classList.remove("grey");
+
+            }
         }
-        
+
+
         for (let i: number = 0; i < buttons.length; i++) {
             buttons[i].className = "myButton";
         }
@@ -108,6 +130,9 @@ namespace IntDes {
         let styleSize = document.getElementById("size-style");
         let styleSpeed = document.getElementById("speed-style");
         let styleDistance = document.getElementById("distance-style");
+        speed.classList.add("active");
+        distance.classList.remove("active");
+        size.classList.remove("active");
         styleSize.rel = "alternate stylesheet";
         styleDistance.rel = "alternate stylesheet";
         styleSpeed.rel = "stylesheet";
@@ -119,6 +144,9 @@ namespace IntDes {
         let styleSize = document.getElementById("size-style");
         let styleSpeed = document.getElementById("speed-style");
         let styleDistance = document.getElementById("distance-style");
+        size.classList.add("active");
+        distance.classList.remove("active");
+        speed.classList.remove("active");
         styleSize.rel = "stylesheet";
         styleDistance.rel = "alternate stylesheet";
         styleSpeed.rel = "alternate stylesheet";
@@ -130,6 +158,9 @@ namespace IntDes {
         let styleSize = document.getElementById("size-style");
         let styleSpeed = document.getElementById("speed-style");
         let styleDistance = document.getElementById("distance-style");
+        distance.classList.add("active");
+        size.classList.remove("active");
+        speed.classList.remove("active");
         styleSize.rel = "alternate stylesheet";
         styleDistance.rel = "stylesheet";
         styleSpeed.rel = "alternate stylesheet";

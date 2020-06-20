@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html>
+
 <head>
     <meta charset='utf-8'>
     <title>Interface Design</title>
@@ -11,88 +12,113 @@
     <script src='main.js'></script>
 </head>
 <style>
-.myButton {
-    /*box-shadow: inset 0px 1px 3px 0px #91b8b3; */
-    /* background: linear-gradient(to bottom, #768d87 5%, #6c7c7c 100%); */
-    background-color: black;
-    border-radius: 15px;
-    border: 1px solid #ffffff;
-    display: inline-block;
-    cursor: pointer;
-    color: #ffffff;
-    /* font-family: Arial; */
-    font-size: 15px;
-    font-weight: bold;
-    padding: 11px 23px;
-    text-decoration: none;
-    /* text-shadow: 0px -1px 0px #2b665e; */
-    margin: 10px 10px 10px 0;
-  
-}
-.myButton:hover {
-    background-color:#ffffff;
-    color: #000000;
-    cursor: pointer;
-}
-.myButton:active {
-	position:relative;
-	top:1px;
-}
+    body {
+        font-family: Arial, Helvetica, sans-serif;
 
-#buttons{
-position: absolute;
-right: 0%;
-display:flex;
-flex-direction: column;
-z-index: 2;
-color:#ffffff;
-font-family:Arial, Helvetica, sans-serif;
-font-size:20px;
-}
+    }
 
-label {
-margin-top: 15px;
-margin-right: 10px;
+    .myButton,
+    .myButton2 {
+        /*box-shadow: inset 0px 1px 3px 0px #91b8b3; */
+        /* background: linear-gradient(to bottom, #768d87 5%, #6c7c7c 100%); */
+        background-color: black;
+        border-radius: 15px;
+        border: 1px solid #ffffff;
+        display: inline-block;
+        cursor: pointer;
+        color: #ffffff;
+        /* font-family: Arial; */
+        font-size: 15px;
+        font-weight: bold;
+        padding: 11px 23px;
+        text-decoration: none;
+        /* text-shadow: 0px -1px 0px #2b665e; */
+        margin: 10px 10px 10px 0;
 
-}
+    }
 
-button.active{
-    background-color:#ffffff;
-    color: #000000;
-}
+    .myButton:hover,
+    .myButton2:hover {
+        background-color: #ffffff;
+        color: #000000;
+        cursor: pointer;
+    }
 
-button:focus {outline:0;}
+    .myButton:active,
+    .myButton2:active {
+        position: relative;
+        top: 1px;
+    }
 
-#buttons2{
-position: absolute;
-display:flex;
-z-index: 2;
+    #buttons {
+        position: absolute;
+        right: 10px;
+        display: flex;
+        flex-direction: column;
+        z-index: 2;
+        color: #ffffff;
+        font-family: Arial, Helvetica, sans-serif;
+        font-size: 20px;
+        top: 50%;
+        transform: translateY(-50%)
+    }
 
-bottom: 50%;
-left:25px;
-flex-direction:column;
-transform: translateY(50%);
+    label {
+        margin-top: 15px;
+        margin-right: 10px;
 
-/*
-bottom: 0%;
-left:50%;
-flex-direction:row;
-transform: translateX(-50%);
-*/
-}
+    }
 
-.info{
-    position: absolute;
-    color: #ffffff;
-    z-index:10;
-    transform: translate(50%,-100%);
-    display:none;
-}
+    button.active {
+        background-color: #ffffff;
+        color: #000000;
+    }
 
+    button:focus {
+        outline: 0;
+    }
+
+    #buttons2 {
+        position: absolute;
+        display: flex;
+        z-index: 2;
+
+        /* bottom: 50%;
+        left: 25px;
+        flex-direction: column;
+        transform: translateY(50%);*/
+
+        bottom: 10px;
+        left: 50%;
+        flex-direction: row;
+        transform: translateX(-50%);
+    }
+
+    .info {
+        padding: 20px;
+        position: absolute;
+        color: #ffffff;
+        z-index: 10;
+        transform: translate(0%, -105%);
+        display: none;
+        background-color: #1b191994;
+        border-radius: 40px;
+        border: 2px solid white;
+    }
+
+    h2 {
+        margin-top: 0;
+        text-decoration: underline;
+    }
+
+    .grey {
+        filter: saturate(0%)
+    }
 </style>
+
 <body>
     <div id="buttons">
-        <label id="Speed">
+        <!--<label id="Speed">
             <input type="radio" class="set-speed" name="group" checked>
             <span>Geschwindigkeit</span>
           </label>
@@ -103,11 +129,15 @@ transform: translateX(-50%);
           <label id="Size">
             <input type="radio" class="set-size" name="group">
             <span>Größe</span>
-          </label>
+          </label>-->
+        <button id="Speed" class="myButton2 active">Speed</button>
+        <button id="Distance" class="myButton2">Distance</button>
+        <button id="Size" class="myButton2">Size</button>
     </div>
 
     <div id="buttons2">
-        <button id="MerkurButton"  planet-data="mercury" class="myButton">Merkur</button>
+        <button id="SonneButton" planet-data="sun" class="myButton">Sonne</button>
+        <button id="MerkurButton" planet-data="mercury" class="myButton">Merkur</button>
         <button id="VenusButton" planet-data="venus" class="myButton">Venus</button>
         <button id="ErdeButton" planet-data="earth" class="myButton">Erde</button>
         <button id="MarsButton" planet-data="mars" class="myButton">Mars</button>
@@ -115,8 +145,15 @@ transform: translateX(-50%);
         <button id="saturnButton" planet-data="saturn" class="myButton">Saturn</button>
         <button id="uranusButton" planet-data="uranus" class="myButton">Uranus</button>
         <button id="neptunButton" planet-data="neptune" class="myButton">Neptun</button>
-        <button planet-data="none" class="myButton">None</button>
+        <button planet-data="none" class="myButton active">None</button>
 
+    </div>
+
+    <div id="text--sun" class="info">
+        <h2>Sonne</h2>
+        Alter: 4,57 Milliarden Jahre<br>
+        Oberflächentemperatur: 5504° Celsius<br>
+        Durchmesser: 1.392.700 km
     </div>
 
     <div id="text--earth" class="info">
@@ -129,7 +166,7 @@ transform: translateX(-50%);
     <div id="text--mercury" class="info">
         <h2>Merkur</h2>
         Umlaufdauer: 88 Tage<br>
-        Entfernung zur Sonne: 58.000.000 km	<br>
+        Entfernung zur Sonne: 58.000.000 km <br>
         Durchmesser: 4.900 km
     </div>
 
@@ -162,7 +199,7 @@ transform: translateX(-50%);
     </div>
 
     <div id="text--none" class="info">
-       
+
     </div>
 
     <div id="text--uranus" class="info">
@@ -190,7 +227,7 @@ transform: translateX(-50%);
             <div class="orbit orbit--venus">
                 <div class="planet planet--venus"></div>
             </div>
-    
+
             <div class="orbit orbit--earth">
                 <div class="planet planet--earth">
                     <div class="orbit orbit--moon">
@@ -198,27 +235,28 @@ transform: translateX(-50%);
                     </div>
                 </div>
             </div>
-            
+
             <div class="orbit orbit--mars">
                 <div class="planet planet--mars"></div>
             </div>
-    
+
             <div class="orbit orbit--jupiter">
                 <div class="planet planet--jupiter"></div>
             </div>
-    
+
             <div class="orbit orbit--saturn">
                 <div class="planet planet--saturn"></div>
             </div>
-    
+
             <div class="orbit orbit--uranus">
                 <div class="planet planet--uranus"></div>
             </div>
-    
+
             <div class="orbit orbit--neptune">
                 <div class="planet planet--neptune"></div>
             </div>
         </div>
     </div>
 </body>
+
 </html>

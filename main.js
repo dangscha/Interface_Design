@@ -49,15 +49,29 @@ var IntDes;
     async function showInfo(_event) {
         lastTarget = target;
         target = _event.target.getAttribute("planet-data");
+        let deColor = galaxy.children[0].children;
         if (target != "none") {
             targetPlanet = document.getElementsByClassName("planet--" + target)[0];
+            if (target == "sun") {
+                targetPlanet = document.getElementsByClassName(target)[0];
+            }
             targetText = document.getElementById("text--" + target);
             request = window.requestAnimationFrame(update);
+            for (let i = 0; i < deColor.length; i++) {
+                deColor[i].classList.add("grey");
+            }
+            targetPlanet.parentNode.classList.remove("grey");
+            if (target == "sun") {
+                targetPlanet.classList.remove("grey");
+            }
             window.requestAnimationFrame(update);
         }
         else {
             for (let i = 0; i < texts.length; i++) {
                 texts[i].style.display = "none";
+            }
+            for (let i = 0; i < deColor.length; i++) {
+                deColor[i].classList.remove("grey");
             }
         }
         for (let i = 0; i < buttons.length; i++) {
@@ -82,6 +96,9 @@ var IntDes;
         let styleSize = document.getElementById("size-style");
         let styleSpeed = document.getElementById("speed-style");
         let styleDistance = document.getElementById("distance-style");
+        speed.classList.add("active");
+        distance.classList.remove("active");
+        size.classList.remove("active");
         styleSize.rel = "alternate stylesheet";
         styleDistance.rel = "alternate stylesheet";
         styleSpeed.rel = "stylesheet";
@@ -91,6 +108,9 @@ var IntDes;
         let styleSize = document.getElementById("size-style");
         let styleSpeed = document.getElementById("speed-style");
         let styleDistance = document.getElementById("distance-style");
+        size.classList.add("active");
+        distance.classList.remove("active");
+        speed.classList.remove("active");
         styleSize.rel = "stylesheet";
         styleDistance.rel = "alternate stylesheet";
         styleSpeed.rel = "alternate stylesheet";
@@ -100,6 +120,9 @@ var IntDes;
         let styleSize = document.getElementById("size-style");
         let styleSpeed = document.getElementById("speed-style");
         let styleDistance = document.getElementById("distance-style");
+        distance.classList.add("active");
+        size.classList.remove("active");
+        speed.classList.remove("active");
         styleSize.rel = "alternate stylesheet";
         styleDistance.rel = "stylesheet";
         styleSpeed.rel = "alternate stylesheet";

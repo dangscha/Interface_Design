@@ -343,23 +343,23 @@
     }
   
     &::before {
-      top: -5px;
-      left: -5px;
+      top: -10px;
+      left: -10px;
   
-      width: 40px;
-      height: 40px;
+      width: 46.5px;
+      height: 46.5px;
   
-      border: 1px solid rgba($saturn-ring-bg-color, .5);
+      border: 2px solid rgba($saturn-ring-bg-color, .5);
     }
   
     &::after {
-      top: -2px;
-      left: -2px;
+      top: -6px;
+      left: -6px;
   
-      width: 30px;
-      height: 30px;
+      width: 35px;
+      height: 35px;
   
-      border: 2px solid rgba($saturn-ring-bg-color, .7);
+      border: 3.5px solid rgba($saturn-ring-bg-color, .7);
     }
   }
   

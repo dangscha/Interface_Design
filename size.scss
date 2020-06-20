@@ -333,23 +333,23 @@
     }
   //Dünner Ring
     &::before {
-      top: -15px;
-      left: -15px;
+      top: -12px;
+      left: -12px;
   
-      width: 60px;
-      height: 60px;
+      width: 49px;
+      height: 49px;
   
       border: 2px solid rgba($saturn-ring-bg-color, .5);
     }
   //Dicker Ring
     &::after {
-      top: -10px;
-      left: -10px;
+      top: -7.6px;
+      left: -7.6px;
   
-      width: 45px;
-      height: 45px;
+      width: 35px;
+      height: 35px;
   
-      border: 3px solid rgba($saturn-ring-bg-color, .7);
+      border: 5px solid rgba($saturn-ring-bg-color, .7);
     }
   }
   
