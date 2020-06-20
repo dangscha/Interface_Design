@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>Der Merkur</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <link rel='stylesheet' type='text/css' media='screen' href='main.css'>
+    <script src='main.js'></script>
+</head>
+<style>
+    body {
+        background-color: black;
+        color: white;
+        font-family: Arial, Helvetica, sans-serif;
+    }
+
+    h1 {
+        text-decoration: underline;
+    }
+
+    #planet {
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+        width: 40%;
+        height: auto;
+    }
+
+    img {
+        width: 100%;
+    }
+
+    #text {
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+        left: 45%;
+        right: 10%;
+        background-color: #1b191994;
+        border-radius: 40px;
+        border: 2px solid white;
+        padding: 20px;
+    }
+
+    #text div{
+        font-size: 18px;
+    }
+
+    #back{ 
+        background-color: black;
+        border-radius: 15px;
+        border: 1px solid #ffffff;
+        display: inline-block;
+        cursor: pointer;
+        color: #ffffff;
+        /* font-family: Arial; */
+        font-size: 15px;
+        font-weight: bold;
+        padding: 11px 23px;
+        text-decoration: none;
+        /* text-shadow: 0px -1px 0px #2b665e; */
+        margin: 10px 10px 10px 0;
+    }
+</style>
+
+<body>
+    <div id="planet">
+        <img src="../source/Mercury.png">
+    </div>
+
+    <div id="text">
+        <h1>Der Merkur</h1>
+        <div><strong>Durchmesser:</strong> 4.900 km<br>
+            <strong>Abstand zur Sonne:</strong> 58.000.000 km <br>
+            <strong>Umlaufzeit:</strong> 88 Tage<br>
+            <strong>Monde:</strong> 0<br>
+        </div>
+        <p>Der Merkur ist ein Planet in unserem Sonnensystem. Von allen Planeten ist er der Sonne am nächsten. Auch darum ist es auf ihm sehr heiß. Für einen Umlauf um die Sonne braucht er nur 88 Tage.</p>
+
+        <p>Zum Vergleich: Bei der Erde sind es dagegen 365 Tage. Dabei sind natürlich unsere „Erdentage“ gemeint. Auf dem Merkur dauert ein Tag, also die Zeit von Sonnenaufgang bis zum nächsten Sonnenaufgang, viel länger: Ein „Merkurtag“ ist fast 59 „Erdentage“ lang. Der Merkur ist nur etwas größer als der Mond der Erde. Er selbst hat aber keinen Mond.</p>
+
+        <p>Damit man eine Vorstellung von den Größen im Sonnensystem bekommt: Wäre die Sonne ein großer Gymnastikball, dann wäre der Merkur nur eine kleine Erbse, die Erde etwa eine Kirsche. Die „Merkur-Erbse“ würde etwa mit 50 Metern Abstand um die „Gymnastikball-Sonne“ kreisen, die Erde mit fast dreimal so viel Abstand.</p>
+        <p>Weil der Merkur keine Lufthülle um sich hat, hat er lauter Krater auf der Oberfläche. Einige sind 100 Meter im Durchmesser groß, andere mehre 100 Kilometer. Das Caloris-Becken ist von einem Ende zum anderen 1300 Kilometer weit. Deutschland würde etwa viermal hineinpassen. Vor Millionen von Jahren muss dort ein gewaltiger Meteorit eingeschlagen sein.</p>
+        <p>Die Menschen kennen den Planeten Merkur schon seit dem Altertum, weil man ihn von der Erde aus mit bloßen Augen sehen kann. Das geht allerdings nur für etwa eine Stunde am Morgen oder am Abend, weil er der Sonne so nah ist. Der Name „Merkur“ kommt von einem römischen Gott.</p>
+        Im Jahr 1974 flog die Raumsonde Mariner 10 am Merkur vorbei. Dank dieser Sonde haben die Forscher sehr viel Neues über den Planeten gelernt. Erst 2008 wurde der Merkur wieder von einer Raumsonde besucht.
+
+        <p>Quelle: <a href="https://klexikon.zum.de/wiki/Merkur">Klexikon</a> </p>
+
+        <button id="back" href="">Zurück</button>
+
+    </div>
+</body>
+
+</html>

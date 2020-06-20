@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>Die Sonne</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <link rel='stylesheet' type='text/css' media='screen' href='main.css'>
+    <script src='main.js'></script>
+</head>
+<style>
+    body {
+        background-color: black;
+        color: white;
+        font-family: Arial, Helvetica, sans-serif;
+    }
+
+    h1 {
+        text-decoration: underline;
+    }
+
+    #planet {
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+        width: 40%;
+        height: auto;
+    }
+
+    img {
+        width: 100%;
+    }
+
+    #text {
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+        left: 45%;
+        right: 10%;
+        background-color: #1b191994;
+        border-radius: 40px;
+        border: 2px solid white;
+        padding: 20px;
+    }
+
+    #text div{
+        font-size: 18px;
+    }
+
+    #back{ 
+        background-color: black;
+        border-radius: 15px;
+        border: 1px solid #ffffff;
+        display: inline-block;
+        cursor: pointer;
+        color: #ffffff;
+        /* font-family: Arial; */
+        font-size: 15px;
+        font-weight: bold;
+        padding: 11px 23px;
+        text-decoration: none;
+        /* text-shadow: 0px -1px 0px #2b665e; */
+        margin: 10px 10px 10px 0;
+    }
+</style>
+
+<body>
+    <div id="planet">
+        <img src="../source/sun.png">
+    </div>
+
+    <div id="text">
+        <h1>Die Sonne</h1>
+        <div><strong>Durchmesser:</strong> 1.392.700 km<br>
+            <strong>Alter:</strong> 4,57 Milliarden Jahre<br>
+            <strong>Oberflächentemperatur:</strong> 5504° Celsius<br>
+        </div>
+        <p>Die Sonne ist ein Stern. Sie ist in der Mitte unseres Sonnensystems. Unsere Erde ist einer der acht Planeten, die um die Sonne kreisen. Die Sonne ist von der Erde 150 
+        Millionen Kilometer entfernt. Selbst das Licht braucht dafür etwa 8 Minuten.</p>
+
+        <p>Im Vergleich zur Sonne sind alle Planeten winzig klein. Wenn man alles Material im ganzen Sonnensystem zusammen nimmt, dann ist fast alles davon die Sonne. 
+        Die Erde würde mit ihrer Größe weit mehr als eine Million mal in die Sonne hineinpassen. Damit ist die Sonne ähnlich groß wie viele andere Sterne.</p>
+
+        <p>Die Sonne besteht fast nur aus Gasen. Sie ist heißer, als man sich das irgendwie vorstellen kann. Wenn ein Satellit der Sonne auch nur ein bisschen zu nahe kommt, 
+        verglüht er. Wegen dieser Hitze strahlt die Sonne wie andere Sterne Licht und Wärme aus. Manches davon kommt auf der Erde an. Dank der Sonne ist es auf der Erde am Tag hell. 
+        Unser Mond und auch die Planeten leuchten, weil sie von der Sonne angestrahlt werden. Manchmal befindet sich der Mond genau zwischen Erde und Sonne, sodass er die Sonne 
+        verdeckt: Das ergibt eine Sonnenfinsternis.</p>
+
+        Von der Sonne gehen aber auch viele Strahlen aus, die alles Leben auf der Erde töten würden, wenn sie nicht abgehalten werden. Das Magnetfeld der Erde schützt uns aber 
+        vor dieser gefährlichen Strahlung.
+
+        <p>Quelle: <a href="https://klexikon.zum.de/wiki/Sonne">Klexikon</a> </p>
+
+        <button id="back" href="">Zurück</button>
+
+    </div>
+</body>
+
+</html>
