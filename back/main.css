@@ -39,7 +39,7 @@ img:hover{
 #sun{
     position: absolute;
     left: 50%;
-    top: 50%;
+    top: 20%;
     transform: translate(-50%,-50%);
     width: 200px;
     height:auto;
@@ -47,75 +47,75 @@ img:hover{
 
 #mercury{
     position: absolute;
-    left: CALC(50% + 100px + 2px + 50px);
+    left: CALC(50% + 150px );
     top: 50%;
     transform: translate(-50%,-50%);
-    width: 4px;
+    width: 10px;
 }
 
 #venus{
     position: absolute;
-    left: CALC(50% + 100px + 6px + 100px);
+    left: CALC(50% + 180px);
     top: 50%;
     transform: translate(-50%,-50%);
-    width: 12px;
+    width: 20px;
 }
 
 #earth{
     position: absolute;
-    left: CALC(50% + 100px + 6px + 150px);
+    left: CALC(50% + 220px);
     top: 50%;
     transform: translate(-50%,-50%);
-    width: 12px;
+    width: 20px;
 }
 
 #mars{
     position: absolute;
-    left: CALC(50% + 100px + 3px + 220px);
+    left: CALC(50% + 250px);
     top: 50%;
     transform: translate(-50%,-50%);
-    width: 6px;
+    width: 16px;
 }
 
 #jupiter{
     position: absolute;
-    left: CALC(50% + 100px + 20px + 770px);
-    top: 50%;
-    transform: translate(-50%,-50%);
-    width: 40px;
-}
-
-#saturn{
-    position: absolute;
-    left: CALC(50% + 100px + 30px + 1420px);
+    left: CALC(50% + 350px);
     top: 50%;
     transform: translate(-50%,-50%);
     width: 60px;
 }
 
-#uranus{
+#saturn{
     position: absolute;
-    left: CALC(50% + 100px + 10px + 2800px);
+    left: CALC(50% + 450px);
     top: 50%;
     transform: translate(-50%,-50%);
-    width: 20px;
+    width: 100px;
+}
+
+#uranus{
+    position: absolute;
+    left: CALC(50% + 550px);
+    top: 50%;
+    transform: translate(-50%,-50%);
+    width: 40px;
     
 }
 
 #neptun{
     position: absolute;
-    left: CALC(50% + 100px + 10px + 4500px);
+    left: CALC(50% + 650px);
     top: 50%;
     transform: translate(-50%,-50%);
-    width: 20px;
+    width: 40px;
 }
 
 #pluto{
     position: absolute;
-    left: CALC(50% + 100px + 1.5px + 5960px);
+    left: CALC(50% + 100px + 1.5px + 750px);
     top: 50%;
     transform: translate(-50%,-50%);
-    width: 3px;
+    width: 10px;
 }
 
 .choose{

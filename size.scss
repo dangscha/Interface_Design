@@ -1,4 +1,3 @@
-// Function for calculating planet revolution in Earth years.
 @function revolution($planet-year-in-earth-days) {
     @return $year-in-seconds * $planet-year-in-earth-days / $earth-revolution-days + s;
   }
@@ -8,19 +7,14 @@
     cursor: pointer;
  }*/
   
-  /**
-   * Variables.
-   */
-  
-  // The number of seconds an Earth year should take. The animation would take a
-  // long time and be pretty boring if we used the actual duration here.
+
   $year-in-seconds: 50;
   
-  // Sun & Moon Size
+  //Größe Sonne und Mond
   $sun: 350px;
   $moon: 0.5px;
   
-  // Orbit Sizes
+  //Orbitgrößen
   $mercury-orbit: 400px;
   $venus-orbit: 450px;
   $earth-orbit: 500px;
@@ -31,7 +25,7 @@
   $uranus-orbit: 950px;
   $neptune-orbit: 1100px;
   
-  // Planet Sizes
+  //Planetengrößen
   $mercury-planet: 1px;
   $venus-planet: 3px;
   $earth-planet: 3px;
@@ -41,11 +35,11 @@
   $uranus-planet: 9px;
   $neptune-planet: 9px;
   
-  // Background Colors
+  //Hintergrundfarben
   $moon-bg-color: #ccc;
   $saturn-ring-bg-color: #a09382;
   
-  // Planet Revolution in Days
+  // Planetenumlaufdauer in
   $mercury-revolution-days: 87.5;
   $venus-revolution-days: 224.7;
   $earth-revolution-days: 365.2563;
@@ -56,10 +50,8 @@
   $uranus-revolution-days: 30589;
   $neptune-revolution-days: 59802;
   
-  /**
-   * Styling.
-   */
-  
+ //*Styling
+ 
   * {
     box-sizing: border-box;
   }
