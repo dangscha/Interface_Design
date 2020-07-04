@@ -104,6 +104,7 @@ namespace IntDes {
         }
 
         (<HTMLButtonElement>_event.target).className = "myButton active";
+        (<HTMLButtonElement>_event.target).className = "myButton active2";
 
     }
 
