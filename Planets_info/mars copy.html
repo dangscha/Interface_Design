@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>Der Mars</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+
+    <!--
+      Include the main three.js script.
+      The global variable THREE will be available for use in any scripts loaded after this one.
+    -->
+    <script src="../AR/three/build/three.js"></script>
+    <!--
+      Include the OrbitControls script.
+      This must be included AFTER the three.js script as it needs to use the global THREE variable
+    -->
+    <script src="../AR/OrbitControls.js"></script>
+    <!--
+        Include the GLTFLoader script. This also needs to be loaded after the three.js script
+    -->
+    <script src="../AR/GLTFLoader.js"></script>
+    <!--
+      Include the RGBELoader script. This also needs to be loaded after the three.js script
+  -->
+    <script src="../AR/RGBELoader.js"></script>
+
+</head>
+<style>
+    body {
+        margin: 0;
+        overflow: hidden;
+    }
+
+    #scene-container {
+        position: absolute;
+        width: 70%;
+        height: 70%;
+        top: 50%;
+        transform: translateY(-50%);
+    }
+
+    body {
+        background-color: black;
+        color: white;
+        font-family: Arial, Helvetica, sans-serif;
+        /** display:flex;
+        justify-content: space-around;**/
+    }
+
+
+    img {
+        width: 100%;
+    }
+
+    #text {
+        position: absolute;
+        top: 150%;
+        transform: translateY(-50%);
+        left: 10%;
+        right: 10%;
+        background-color: #313030;
+        border-radius: 40px;
+        border: 2px solid white;
+        padding: 20px;
+        float: both;
+        font-size: 18px;
+    }
+
+    #back {
+        background-color: black;
+
+        border: 1px solid #ffffff;
+        display: inline-block;
+        cursor: pointer;
+        color: #ffffff;
+        font-weight: bold;
+        padding: 11px 23px;
+        text-decoration: none;
+        /* text-shadow: 0px -1px 0px #2b665e; */
+        margin: 10px 10px 10px 0;
+    }
+
+    #planetName {
+        font-size: 50px;
+        position: absolute;
+        top: 50%;
+        left: 15%;
+        font-family: monospace;
+    }
+
+    #infobox {
+        font-size: 20px;
+        position: absolute;
+        width: 1280px;
+        top: 80%;
+        left: 15%;
+        font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+
+    }
+
+    h2 {
+        color: darkgoldenrod;
+        font-size: 20px;
+    }
+
+    .info {
+        background-color: black;
+
+        border: 1px solid #ffffff;
+        display: inline-block;
+        cursor: pointer;
+        color: #ffffff;
+        font-weight: bold;
+        padding: 11px 23px;
+        text-decoration: none;
+        /* text-shadow: 0px -1px 0px #2b665e; */
+        margin: 10px 10px 10px 0;
+    }
+
+    #planetShit {
+        
+        width: 1920px;
+        height: 1280px;
+    }
+</style>
+
+<body>
+
+    <div id="scene-container">
+       
+    </div>
+    <div id="planetShit">
+
+
+        <div id="planetName">Der Mars</div>
+        <div id="infobox">
+            <div class="info">
+                <h2>Abstand zur Sonne:</h2>228.000.000 km
+            </div>
+            <div class="info">
+                <h2>Umlaufzeit:</h2>687 Tage
+            </div>
+            <div class="info">
+                <h2>Durchmesser:</h2>6.800 km
+            </div>
+            <div class="info">
+                <h2>Anzahl der Monde:</h2>2
+            </div>
+        </div>
+
+    </div>
+
+   <!-- <div id="text">
+        <h1>Der Mars</h1>
+        <div><strong>Durchmesser:</strong> 6.800 km<br>
+            <strong>Abstand zur Sonne:</strong> 228.000.000 km <br>
+            <strong>Umlaufzeit:</strong> 687 Tage<br>
+            <strong>Monde:</strong> 2<br>
+        </div>
+        <p>Der Mars ist ein Planet in unserem Sonnensystem. Von der Sonne aus gesehen befindet sich seine Bahn hinter
+            der Erde. Für einen Umlauf um die Sonne braucht er 687 Tage, die Erde dagegen 365 Tage. Hierbei sind
+            natürlich unsere „Erdentage“ gemeint. Auf dem Mars dauert ein Tag etwa genauso lange wie auf der Erde. Das
+            ist bei den anderen Planeten ganz anders. Der Mars ist im Durchmesser nur etwas halb so groß wie die Erde.
+            Er hat zwei kleine Monde, die Phobos und Deimos heißen.</p>
+
+        <p>Damit man eine Vorstellung von den Größen im Sonnensystem bekommt: Wäre die Sonne ein großer Gymnastikball,
+            dann wäre der Mars nur eine große Erbse, die Erde etwa eine Kirsche. Die „Mars-Erbse“ würde etwa mit 200
+            Metern Abstand um die „Gymnastikball-Sonne“ kreisen, die Erde mit etwa zwei Dritteln von diesem Abstand.</p>
+
+        <p>Schon im Altertum kannte man den Mars. Sein Name kommt vom römischen Gott für den Krieg. Lange Zeit hat man
+            geglaubt, dort könnte es außerirdisches Leben geben, vielleicht sogar Wesen, die so aussehen wie wir
+            Menschen.</p>
+        <p>Im Jahr 1877 meinte ein Astronom, mit seinem Fernrohr Rillen auf dem Mars zu sehen. Später behauptete jemand
+            sogar, dass die Rillen Kanäle seien. Die Bewohner des Mars hätten die Kanäle gebaut, um Wasser von den Polen
+            zum Äquator zu bringen. Schließlich erkannte man, dass die Astronomen sich mit den Rillen getäuscht hatten:
+            Es gibt sie gar nicht.</p>
+        <p>Im 20. Jahrhundert haben die USA und die Sowjetunion mehrere Raumsonden zum Mars geschickt. Man glaubte,
+            zumindest Pflanzen oder Bakterien zu finden. Seit 1976 weiß man, dass es nicht einmal so einfache Lebewesen
+            auf dem Mars gibt.</p>
+
+        <p>Quelle: <a href="https://klexikon.zum.de/wiki/Mars">Klexikon</a> </p>
+
+        <a href="https://dangscha.github.io/Interface_Design/main.html">
+            <button id="back">Zurück</button>
+        </a>
+
+
+    </div>-->
+
+    
+   
+    <script src="../AR/test.js"></script>
+</body>
+
+</html>
