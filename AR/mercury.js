@@ -37,6 +37,8 @@ function createCamera() {
 function createControls() {
 
     controls = new THREE.OrbitControls(camera, container);
+    controls.enablePan = false;
+    controls.enableZoom= false;
 
 }
 

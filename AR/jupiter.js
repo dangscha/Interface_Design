@@ -44,10 +44,10 @@ function createLights() {
 
     const ambientLight = new THREE.HemisphereLight(0xffffff, 0xffffff, 3);
 
-    const mainLight = new THREE.DirectionalLight(0xffffff, 5);
+    const mainLight = new THREE.DirectionalLight(0xffffff, 2);
     mainLight.position.set(0, 10, 30);
 
-    const mainLight2 = new THREE.DirectionalLight(0xffffff, 5);
+    const mainLight2 = new THREE.DirectionalLight(0xffffff, 2);
     mainLight2.position.set(0, 10, -30);
 
     scene.add(ambientLight, mainLight, mainLight2);
