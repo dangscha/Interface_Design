@@ -40,6 +40,10 @@ var IntDes;
         for (let i = 0; i < buttons.length; i++) {
             buttons[i].addEventListener("click", showInfo);
         }
+        let x = document.querySelectorAll('[data-button="X"]');
+        for (let i = 0; i < x.length; i++) {
+            x[i].addEventListener("click", showNone);
+        }
     }
     let target = "";
     let lastTarget = "";
@@ -90,6 +94,20 @@ var IntDes;
             targetText.style.display = "block";
             window.requestAnimationFrame(update);
         }
+    }
+    function showNone() {
+        target = "none";
+        for (let i = 0; i < texts.length; i++) {
+            texts[i].style.display = "none";
+        }
+        let deColor = galaxy.children[0].children;
+        for (let i = 0; i < deColor.length; i++) {
+            deColor[i].classList.remove("grey");
+        }
+        for (let i = 0; i < buttons.length; i++) {
+            buttons[i].className = "myButton";
+        }
+        document.getElementById("deselect").className = "myButton active";
     }
     function setSpeed(_event) {
         console.log("speed");

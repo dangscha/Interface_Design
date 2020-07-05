@@ -76,14 +76,7 @@
         color: #000000;
     }
 
-    myButton active2 {
-        background-color: #ffffff;
-        color: #000000;
-        position:absolute;
-        Top: 3px;
-        right: 5%;
-    }
-
+  
     button:focus {
         outline: 0;
     }
@@ -124,14 +117,44 @@
         filter: saturate(0%)
     }
 
-    .myButton3{
-        position:absolute;
+    .myButton3 {
+        position: absolute;
         z-index: 2;
         top: 2px;
         right: 5%;
 
 
     }
+
+    [data-button="X"] {
+        position: absolute;
+        top: 10px;
+        right: 15px;
+        background-color: #000000;
+        color: #ffffff;
+        width: 30px;
+        height: 30px;
+        border-radius: 100%;
+        border: 1px solid #ffffff;
+        cursor: pointer;
+        font-size: 15px;
+        font-weight: bold;
+    }
+
+    span{
+       position: absolute;
+       top: 50%;
+       left: 50%;
+       transform: translate(-50%,-50%);
+    }
+
+
+    [data-button="X"]:hover {
+        background-color: #ffffff;
+        color: #000000;
+        cursor: pointer;
+    }
+
 </style>
 
 <body>
@@ -163,28 +186,31 @@
         <button id="saturnButton" planet-data="saturn" class="myButton">Saturn</button>
         <button id="uranusButton" planet-data="uranus" class="myButton">Uranus</button>
         <button id="neptunButton" planet-data="neptune" class="myButton">Neptun</button>
-        <button planet-data="none" class="myButton active">None</button>
+        <button id="deselect" planet-data="none" class="myButton active">None</button>
 
     </div>
 
-    
-        <div id="text--sun" class="info">
-            <h2>Sonne</h2>
-            Alter: 4,57 Milliarden Jahre<br>
-            Oberflächentemperatur: 5504° Celsius<br>
-            Durchmesser: 1.392.700 km<br>
-            <a href="https://dangscha.github.io/Interface_Design/Planets_info/Sun.html"> <button class="myButton2">Mehr...</button></a>
-             <button planet-data="none" class="myButton active2">X</button>
-        </div>
-    
 
-    
+    <div id="text--sun" class="info">
+        <h2>Sonne</h2>
+        Alter: 4,57 Milliarden Jahre<br>
+        Oberflächentemperatur: 5504° Celsius<br>
+        Durchmesser: 1.392.700 km<br>
+        <a href="https://dangscha.github.io/Interface_Design/Planets_info/Sun.html"> <button
+                class="myButton2">Mehr...</button></a>
+        <div planet-data="none" data-button="X" ><span>X</span></div>
+    </div>
+
+
+
     <div id="text--earth" class="info">
         <h2>Erde</h2>
         Umlaufdauer: 365 Tage<br>
         Entfernung zur Sonne: 150.000.000 km<br>
         Durchmesser: 12.800 km<br>
-        <a href="https://dangscha.github.io/Interface_Design/Planets_info/earth.html"><button class="myButton2">Mehr...</button></a>
+        <a href="https://dangscha.github.io/Interface_Design/Planets_info/earth.html"><button
+                class="myButton2">Mehr...</button></a>
+                <div planet-data="none" data-button="X" ><span>X</span></div>
     </div>
 
 
@@ -193,7 +219,9 @@
         Umlaufdauer: 88 Tage<br>
         Entfernung zur Sonne: 58.000.000 km <br>
         Durchmesser: 4.900 km<br>
-        <a href="https://dangscha.github.io/Interface_Design/Planets_info/mercury.html"><button class="myButton2">Mehr...</button></a>
+        <a href="https://dangscha.github.io/Interface_Design/Planets_info/mercury.html"><button
+                class="myButton2">Mehr...</button></a>
+                <div planet-data="none" data-button="X" ><span>X</span></div>
     </div>
 
 
@@ -203,7 +231,9 @@
         Umlaufdauer: 225 Tage<br>
         Entfernung zur Sonne: 108.000.000 km <br>
         Durchmesser: 12.100 km<br>
-        <a href="https://dangscha.github.io/Interface_Design/Planets_info/venus.html">  <button class="myButton2">Mehr...</button></a>
+        <a href="https://dangscha.github.io/Interface_Design/Planets_info/venus.html"> <button
+                class="myButton2">Mehr...</button></a>
+                <div planet-data="none" data-button="X" ><span>X</span></div>
     </div>
 
 
@@ -213,7 +243,9 @@
         Umlaufdauer: 687 Tage<br>
         Entfernung zur Sonne: 228.000.000 km<br>
         Durchmesser: 6.800 km<br>
-        <a href="https://dangscha.github.io/Interface_Design/Planets_info/mars.html"><button class="myButton2">Mehr...</button></a>
+        <a href="https://dangscha.github.io/Interface_Design/Planets_info/mars.html"><button
+                class="myButton2">Mehr...</button></a>
+                <div planet-data="none" data-button="X" ><span>X</span></div>
     </div>
 
 
@@ -223,7 +255,9 @@
         Umlaufdauer: 12 Jahre<br>
         Entfernung zur Sonne: 778.000.000 km <br>
         Durchmesser: 143.000 km<br>
-        <a href="https://dangscha.github.io/Interface_Design/Planets_info/jupiter.html">  <button class="myButton2">Mehr...</button></a>
+        <a href="https://dangscha.github.io/Interface_Design/Planets_info/jupiter.html"> <button
+                class="myButton2">Mehr...</button></a>
+                <div planet-data="none" data-button="X" ><span>X</span></div>
     </div>
 
 
@@ -233,19 +267,23 @@
         Umlaufdauer: 29 Jahre<br>
         Entfernung zur Sonne: 1.427.000.000 km <br>
         Durchmesser: 120.500 km<br>
-        <a href="https://dangscha.github.io/Interface_Design/Planets_info/saturn.html"> <button class="myButton2">Mehr...</button></a>
+        <a href="https://dangscha.github.io/Interface_Design/Planets_info/saturn.html"> <button
+                class="myButton2">Mehr...</button></a>
+                <div planet-data="none" data-button="X" ><span>X</span></div>
     </div>
 
     <div id="text--none" class="info">
 
     </div>
-    
+
     <div id="text--uranus" class="info">
         <h2>Uranus</h2>
         Umlaufdauer: 84 Jahre<br>
         Entfernung zur Sonne: 2.884.000.000 km <br>
         Durchmesser: 51.100 km<br>
-        <a href="https://dangscha.github.io/Interface_Design/Planets_info/uranus.html"><button class="myButton2">Mehr...</button></a>
+        <a href="https://dangscha.github.io/Interface_Design/Planets_info/uranus.html"><button
+                class="myButton2">Mehr...</button></a>
+                <div planet-data="none" data-button="X" ><span>X</span></div>
     </div>
 
 
@@ -255,7 +293,9 @@
         Umlaufdauer: 165 Jahre<br>
         Entfernung zur Sonne: 4.509.000.000 km<br>
         Durchmesser: 49.500 km<br>
-        <a href="https://dangscha.github.io/Interface_Design/Planets_info/neptun.html"> <button class="myButton2">Mehr...</button></a>
+        <a href="https://dangscha.github.io/Interface_Design/Planets_info/neptun.html"> <button
+                class="myButton2">Mehr...</button></a>
+                <div planet-data="none" data-button="X" ><span>X</span></div>
     </div>
 
 
@@ -300,6 +340,7 @@
             </div>
         </div>
     </div>
+
 </body>
 
 </html>

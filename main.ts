@@ -53,6 +53,11 @@ namespace IntDes {
             buttons[i].addEventListener("click", showInfo);
         }
 
+        let x: NodeListOf<HTMLDivElement> = <NodeListOf<HTMLDivElement>>document.querySelectorAll('[data-button="X"]');
+
+        for (let i: number = 0; i < x.length; i++) {
+            x[i].addEventListener("click", showNone);
+        }
     }
 
     let target: string = "";
@@ -68,9 +73,9 @@ namespace IntDes {
         let deColor: HTMLCollectionOf<HTMLDivElement> = <HTMLCollectionOf<HTMLDivElement>>galaxy.children[0].children;
 
         if (target != "none") {
-            
+
             targetPlanet = <HTMLDivElement>document.getElementsByClassName("planet--" + target)[0];
-            if (target == "sun") { 
+            if (target == "sun") {
                 targetPlanet = <HTMLDivElement>document.getElementsByClassName(target)[0];
             }
             targetText = <HTMLDivElement>document.getElementById("text--" + target);
@@ -81,7 +86,7 @@ namespace IntDes {
             }
 
             (<HTMLDivElement>targetPlanet.parentNode).classList.remove("grey");
-            if (target == "sun") { 
+            if (target == "sun") {
                 (<HTMLDivElement>targetPlanet).classList.remove("grey");
             }
             window.requestAnimationFrame(update);
@@ -104,7 +109,6 @@ namespace IntDes {
         }
 
         (<HTMLButtonElement>_event.target).className = "myButton active";
-        (<HTMLButtonElement>_event.target).className = "myButton active2";
 
     }
 
@@ -125,6 +129,27 @@ namespace IntDes {
 
     }
 
+    function showNone(): void {
+
+        target = "none";
+
+        for (let i: number = 0; i < texts.length; i++) {
+            texts[i].style.display = "none";
+        }
+
+        let deColor: HTMLCollectionOf<HTMLDivElement> = <HTMLCollectionOf<HTMLDivElement>>galaxy.children[0].children;
+
+        for (let i: number = 0; i < deColor.length; i++) {
+            deColor[i].classList.remove("grey");
+
+        }
+
+        for (let i: number = 0; i < buttons.length; i++) {
+            buttons[i].className = "myButton";
+        }
+
+        (<HTMLButtonElement>document.getElementById("deselect")).className = "myButton active";
+    }
 
     function setSpeed(_event: MouseEvent): void {
         console.log("speed");
