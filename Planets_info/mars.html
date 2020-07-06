@@ -18,7 +18,6 @@
         color: white;
         font-family: Arial, Helvetica, sans-serif;
         margin: 0;
-        overflow: hidden;
     }
 
     #scene-container {
@@ -30,9 +29,15 @@
         left: -150px;
     }
 
-    img {
-        width: 100%;
+
+    #planet {
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+        width: 40%;
+        height: auto;
     }
+
 
     #text {
         position: absolute;
@@ -40,17 +45,17 @@
         transform: translateY(-50%);
         right: 10px;
         width: 800px;
-        background-color: #1b191994;
+        background-color: #222222;
         border-radius: 40px;
-        border: 2px solid white;
         padding: 20px;
+
     }
 
-    #text div{
+    #text div {
         font-size: 18px;
     }
 
-    #back{ 
+    #back {
         background-color: black;
         border-radius: 15px;
         border: 1px solid #ffffff;
@@ -64,6 +69,80 @@
         text-decoration: none;
         /* text-shadow: 0px -1px 0px #2b665e; */
         margin: 10px 10px 10px 0;
+    }
+
+    #symbol {
+        height: 80px;
+        width: 80px;
+        position: absolute;
+        top: 80%;
+        right: 55%
+    }
+
+    #symbol {
+        filter: contrast(20%);
+    }
+
+    #pfeil {
+        top: 909px;
+        width: 100%;
+        position: absolute;
+        background-color: #222222;
+        height: 30px;
+        font-size: 25px;
+        text-align: center;
+
+    }
+
+    #pfeil:hover{
+        cursor:pointer
+    }
+    #arrow {
+        transform: rotate(90deg);
+        display: inline-block;
+    }
+
+    #allPlanets {
+        position: absolute;
+        top: 950px;
+        width: 1200px;
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: space-evenly;
+        left: 50%;
+        transform: translateX(-50%)
+    }
+
+    a:link{
+        color:white
+    }
+
+    a:visited{
+        color:white
+    }
+
+    a:hover{
+        color:grey
+    }
+
+    .smallPlanet {
+        border-radius: 40px;
+        width: 350px;
+        flex-direction: column;
+        display: flex;
+        align-items: center;
+    }
+
+    .planetPicture {
+        width: 240px;
+        height: 240px;
+    }
+
+    h2 {
+        text-align: center;
+        padding: 5px;
+        text-decoration: underline;
     }
 </style>
 
@@ -90,10 +169,67 @@
         <a href="https://dangscha.github.io/Interface_Design/main.html">
             <button id="back">Zurück</button>
             </a>
+        </div>
 
+        <div id="symbol">
+        <img id="symbol" src="../source/symbol.png">
+    
+        </div>
+    <div id="pfeil" onclick="myFunction()">
+        Alle Planeten <span id="arrow">&#10151;</span>
+    </div>
+
+    <div id="allPlanets">
+        <div class="smallPlanet">
+            <h2><a href="https://dangscha.github.io/Interface_Design/Planets_info/Sun.html">Die Sonne</h2></a>
+            <a href="https://dangscha.github.io/Interface_Design/Planets_info/Sun.html"><img class="planetPicture" src="../source/sun.jpg"></a>
+        </div>
+
+        <div class="smallPlanet">
+            <h2><a href="https://dangscha.github.io/Interface_Design/Planets_info/mercury.html">Der Merkur</h2></a>
+            <a href="https://dangscha.github.io/Interface_Design/Planets_info/mercury.html"><img class="planetPicture" src="../source/mercury.jpg"></a>
+        </div>
+
+        <div class="smallPlanet">
+            <h2><a href="https://dangscha.github.io/Interface_Design/Planets_info/venus.html">Die Venus</h2></a>
+            <a href="https://dangscha.github.io/Interface_Design/Planets_info/venus.html"><img class="planetPicture" src="../source/venus.jpg"></a>
+        </div>
+
+        <div class="smallPlanet">
+            <a href="https://dangscha.github.io/Interface_Design/Planets_info/earth.html"><h2>Die Erde</h2></a>
+            <a href="https://dangscha.github.io/Interface_Design/Planets_info/earth.html"><img class="planetPicture" src="../source/earth.jpg"></a>
+        </div>
+
+
+        <div class="smallPlanet">
+            <h2><a href="https://dangscha.github.io/Interface_Design/Planets_info/jupiter.html">Der Jupiter</h2></a>
+            <a href="https://dangscha.github.io/Interface_Design/Planets_info/jupiter.html"><img class="planetPicture" src="../source/jupiter.jpg"></a>
+        </div>
+
+        
+        <div class="smallPlanet">
+            <h2><a href="https://dangscha.github.io/Interface_Design/Planets_info/saturn.html">Der Saturn</a></h2>
+           <a href="https://dangscha.github.io/Interface_Design/Planets_info/saturn.html"> <img class="planetPicture" src="../source/saturn (1).png"></a>
+        </div>
+
+        <div class="smallPlanet">
+            <h2><a href="https://dangscha.github.io/Interface_Design/Planets_info/uranus.html">Der Uranus</h2></a>
+            <a href="https://dangscha.github.io/Interface_Design/Planets_info/uranus.html"> <img class="planetPicture" src="../source/uranus.jpg"></a>
+        </div>
+
+        <div class="smallPlanet">
+            <h2><a href="https://dangscha.github.io/Interface_Design/Planets_info/neptun.html">Der Neptun</h2></a>
+            <a href="https://dangscha.github.io/Interface_Design/Planets_info/neptun.html"><img class="planetPicture" src="../source/neptun.jpg"></a>
+        </div>
 
     </div>
     <script src="../AR/mars.js"></script>
+    <script>
+        function myFunction() {
+          var elmnt = document.getElementById("allPlanets");
+          elmnt.scrollIntoView({ behavior: "smooth"});
+        }
+        </script>
 </body>
 
 </html>

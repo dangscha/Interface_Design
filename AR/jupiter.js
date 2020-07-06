@@ -35,16 +35,17 @@ function createCamera() {
 }
 
 function createControls() {
-
     controls = new THREE.OrbitControls(camera, container);
+    controls.enablePan = false;
+    controls.enableZoom= false;
 
 }
 
 function createLights() {
 
-    const ambientLight = new THREE.HemisphereLight(0xffffff, 0xffffff, 3);
+    const ambientLight = new THREE.HemisphereLight(0xffffff, 0xffffff, 1);
 
-    const mainLight = new THREE.DirectionalLight(0xffffff, 2);
+    const mainLight = new THREE.DirectionalLight(0xffffff, 1);
     mainLight.position.set(0, 10, 30);
 
     const mainLight2 = new THREE.DirectionalLight(0xffffff, 2);
