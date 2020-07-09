@@ -38,6 +38,8 @@ function createControls() {
     controls = new THREE.OrbitControls(camera, container);
     controls.enablePan = false;
     controls.enableZoom= false;
+    controls.autoRotate= true;
+    controls.autoRotateSpeed= 0.5;
 
 }
 
@@ -107,6 +109,7 @@ function update() {
 
 function render() {
     renderer.render(scene, camera);
+    controls.update();
 }
 
 function onWindowResize() {
